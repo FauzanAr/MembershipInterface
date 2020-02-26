@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import Navigation from './navbar/Navigation.js';
 import {Route} from 'react-router-dom';
 

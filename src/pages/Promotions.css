@@ -1,0 +1,13 @@
+header{
+    text-align: center;
+}
+
+.jumbotron{
+    -webkit-box-shadow: 4px 2px 16px -1px rgba(0,0,0,0.47); 
+    box-shadow: 4px 2px 16px -1px rgba(0,0,0,0.47);
+}
+
+.card{
+    -webkit-box-shadow: 4px 2px 16px -1px rgba(0,0,0,0.47); 
+    box-shadow: 4px 2px 16px -1px rgba(0,0,0,0.47);
+}
