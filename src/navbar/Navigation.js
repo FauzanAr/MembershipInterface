@@ -12,13 +12,13 @@ class Navigation extends React.Component{
             <Navbar bg="light" expand="lg">
             <Navbar.Brand as={Link} to ='/'>Membership</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-            <Navbar.Collapse id="responsive-navbar-na">
+            <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
                 <Nav.Link as={Link} to="/promotions">Promotions</Nav.Link>
                 <Nav.Link as={Link} to="/rewards">Rewards</Nav.Link>
                 </Nav>
                 <Nav>
-                    <NavDropdown title="Login" id="basic-nav-dropdown">
+                    <NavDropdown title="Login" id="basic-nav-dropdown" alignRight>
                     <NavDropdown.Item href="#action/3.1">Edit Profile</NavDropdown.Item>
                     <NavDropdown.Item href="#action/3.2">Edit Password</NavDropdown.Item>
                     <NavDropdown.Divider />
