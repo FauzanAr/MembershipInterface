@@ -13,6 +13,7 @@ export default class Login extends Component {
         };
 
         this.onChange = this.onChange.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
     }
 
     onChange(e)
@@ -23,7 +24,21 @@ export default class Login extends Component {
     onSubmit(e)
     {
         e.preventDefault();
-        console.log("Submit");
+        
+        const Users = {
+            UsersUsername : this.state.UsersUsername,
+            UsersPassword : this.state.UsersPassword
+        }
+
+        fetch('http://localhost:5000/v1/api/users/login',{
+            method: 'POST',
+            headers: {
+                'Content-Type' : 'application/json'
+            },
+            body : JSON.stringify(Users)
+        })
+        .then(res => res.json())
+        .then(data => console.log(data));
     }
 
     render() {
