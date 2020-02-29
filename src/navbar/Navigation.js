@@ -7,22 +7,34 @@ import './Navigations.css';
 
 
 class Navigation extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            AccessToken:'',
+            RefreshToken:'',
+            UsersId:'',
+            UsersName:''
+        };
+    }
+    componentDidMount(){
+        this.setState(JSON.parse(localStorage.getItem('user')))
+    }
     render(){
         return (
             <Navbar bg="light" expand="lg">
-            <Navbar.Brand as={Link} to ='/'>Membership</Navbar.Brand>
+            <Navbar.Brand as={Link} to ='/home/promotions'>Membership</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
-                <Nav.Link as={Link} to="/promotions">Promotions</Nav.Link>
-                <Nav.Link as={Link} to="/rewards">Rewards</Nav.Link>
+                <Nav.Link as={Link} to="/home/promotions">Promotions</Nav.Link>
+                <Nav.Link as={Link} to="/home/rewards">Rewards</Nav.Link>
                 </Nav>
                 <Nav>
-                    <NavDropdown title="Login" id="basic-nav-dropdown" alignRight>
-                    <NavDropdown.Item href="#action/3.1">Edit Profile</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">Edit Password</NavDropdown.Item>
+                    <NavDropdown title={this.state.UsersName} id="basic-nav-dropdown" alignRight>
+                    <NavDropdown.Item href="#/home/edit-profile">Edit Profile</NavDropdown.Item>
+                    <NavDropdown.Item href="/home/edit-password">Edit Password</NavDropdown.Item>
                     <NavDropdown.Divider />
-                        <NavDropdown.Item href="#action/3.4">Logout</NavDropdown.Item>
+                        <NavDropdown.Item href="/home/logout">Logout</NavDropdown.Item>
                     </NavDropdown>
                 </Nav>
             </Navbar.Collapse>

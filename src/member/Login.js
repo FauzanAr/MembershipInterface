@@ -34,8 +34,6 @@ class Login extends Component {
         }
 
         this.props.userLogin(Users);
-        let user = localStorage.getItem('user')
-        console.log(user)
     }
 
     render() {
