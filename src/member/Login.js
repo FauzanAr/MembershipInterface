@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import { Button, FormGroup, FormControl, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { userLogin } from '../actions/memberAction';
 import "./Login.css";
 
 
-export default class Login extends Component {
+class Login extends Component {
     constructor(props){
         super(props);
         this.state = {
@@ -30,15 +33,9 @@ export default class Login extends Component {
             UsersPassword : this.state.UsersPassword
         }
 
-        fetch('http://localhost:5000/v1/api/users/login',{
-            method: 'POST',
-            headers: {
-                'Content-Type' : 'application/json'
-            },
-            body : JSON.stringify(Users)
-        })
-        .then(res => res.json())
-        .then(data => console.log(data));
+        this.props.userLogin(Users);
+        let user = localStorage.getItem('user')
+        console.log(user)
     }
 
     render() {
@@ -73,3 +70,9 @@ export default class Login extends Component {
         )
     }
 }
+
+Login.propTypes = {
+    userLogin: PropTypes.func.isRequired
+};
+
+export default connect(null, { userLogin })(Login);

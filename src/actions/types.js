@@ -1,0 +1,5 @@
+export const USER_LOGIN = 'USER_LOGIN';
+export const FETCH_USER = 'FETCH_USER';
+export const FETCH_REWARDS = 'FETCH_REWARDS';
+export const NEW_REGISTER = 'NEW_REGISTER';
+export const FETCH_PROMOTIONS = 'FETCH_PROMOTIONS';
