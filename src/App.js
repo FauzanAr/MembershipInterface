@@ -26,10 +26,10 @@ function App() {
       <div className="App">
           <Route path='/' exact component={Login} />
           <Route path='/register' component={Register} />
-          {isLoggedIn && window.location.pathname === '/home' ? 
+          {isLoggedIn && window.location.pathname === '/home' ?
             <Navigation />
             :
-            <Blank />
+            <div />
           }
             <PrivateRoute path='/home/promotions' component={Promotions} />
             <PrivateRoute path='/home/rewards' component={Rewards} />
