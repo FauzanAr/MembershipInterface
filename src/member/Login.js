@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { Button, FormGroup, FormControl, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { userLogin } from '../actions/memberAction';
+
 import "./Login.css";
 
 
