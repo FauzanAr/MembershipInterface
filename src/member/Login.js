@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Button, FormGroup, FormControl, Form } from 'react-bootstrap';
-import { Link, Redirect } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { userLogin } from '../actions/memberAction';
 
@@ -70,8 +69,9 @@ class Login extends Component {
     }
 }
 
-Login.propTypes = {
-    userLogin: PropTypes.func.isRequired
-};
+const actionCreators = {
+    login: userActions.login,
+    logout: userActions.logout
+}
 
 export default connect(null, { userLogin })(Login);

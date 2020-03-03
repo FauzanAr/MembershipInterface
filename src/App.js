@@ -48,5 +48,6 @@ const actionCreators = {
   clearAlerts : alertActions.clear
 }
 
+const connectedApp = connect(null, actionCreators)(App);
 
-export default App;
+export { connectedApp as App };
