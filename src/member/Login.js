@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Button, FormGroup, FormControl, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { userLogin } from '../actions/memberAction';
+import { loginActions } from '../actions/loginActions';
 
 import "./Login.css";
 
@@ -10,6 +10,9 @@ import "./Login.css";
 class Login extends Component {
     constructor(props){
         super(props);
+
+        this.props.logout();
+
         this.state = {
             UsersUsername: '',
             UsersPassword: ''
@@ -33,7 +36,7 @@ class Login extends Component {
             UsersPassword : this.state.UsersPassword
         }
 
-        this.props.userLogin(Users);
+        this.props.login(Users);
     }
 
     render() {
@@ -70,8 +73,10 @@ class Login extends Component {
 }
 
 const actionCreators = {
-    login: userActions.login,
-    logout: userActions.logout
+    login: loginActions.login,
+    logout: loginActions.logout
 }
 
-export default connect(null, { userLogin })(Login);
+const connectedLoginPage = connect(null, actionCreators)(Login);
+
+export {connectedLoginPage as Login}; 
