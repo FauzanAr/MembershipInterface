@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button, FormGroup, FormControl, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { registerActions } from '../actions/registrationActions';
 
 import './Register.css';
 
@@ -31,7 +32,7 @@ export default class Register extends Component {
             UsersEmail : this.state.UsersEmail,
             UsersPassword : this.state.UsersPassword
         }
-        this.props.login(Users);
+        this.props.register(Users);
     }
 
     render() {
@@ -76,3 +77,11 @@ export default class Register extends Component {
         )
     }
 }
+
+const actionCreators = {
+    register : registerActions.register
+}
+
+const connectedRegisterPage = connect(null, actionCreators)(Register);
+
+export {connectedRegisterPage as Register}; 
