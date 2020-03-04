@@ -31,8 +31,6 @@ class Navigation extends React.Component{
                 </Nav>
                 <Nav>
                     <NavDropdown title={this.state.UsersName} id="basic-nav-dropdown" alignRight>
-                    <NavDropdown.Item href="#/home/edit-profile">Edit Profile</NavDropdown.Item>
-                    <NavDropdown.Item href="/home/edit-password">Edit Password</NavDropdown.Item>
                     <NavDropdown.Divider />
                         <NavDropdown.Item href="/home/logout">Logout</NavDropdown.Item>
                     </NavDropdown>

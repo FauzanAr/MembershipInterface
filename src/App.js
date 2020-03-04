@@ -21,7 +21,7 @@ class App extends React.Component{
     })
   }
   render() {
-    const { loginReducer } = this.props
+    const { loginReducer } = this.props;
     return (
         <div className="App">
           <Router history={history}>
