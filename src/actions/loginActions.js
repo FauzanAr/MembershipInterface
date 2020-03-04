@@ -14,7 +14,7 @@ function login(user){
             .then(
                 user => {
                     dispatch(success(user));
-                    history.push('/home');
+                    history.push('/home/promotions');
                 }
             );
     };

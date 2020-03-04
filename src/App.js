@@ -21,22 +21,22 @@ class App extends React.Component{
     })
   }
   render() {
-    const isLoggedIn = localStorage.getItem('user') ? true : false;
+    const { loginReducer } = this.props
     return (
         <div className="App">
           <Router history={history}>
             <Switch>
               <React.Fragment>
+              {loginReducer.loggedIn ?
+                <Navigation />
+                :
+                <p></p>
+              }
               <PrivateRoute path='/home/promotions' component={Promotions} />
               <PrivateRoute path='/home/rewards' component={Rewards} />
               <PrivateRoute path='/home/logout' component={Login} />
               <Route path='/' exact component={Login} />
               <Route path='/register' component={Register} />
-              {isLoggedIn && window.location.pathname === '/home' ?
-                <Navigation />
-                :
-                <p></p>
-              }
               <Redirect from ="*" to ="/"/>
               </React.Fragment>
             </Switch>
@@ -46,10 +46,15 @@ class App extends React.Component{
   }
 }
 
+function mapState (state) {
+  const { loginReducer } = state;
+  return { loginReducer };
+}
+
 const actionCreators = {
   clearAlerts : alertActions.clear
 }
 
-const connectedApp = connect(null, actionCreators)(App);
+const connectedApp = connect(mapState, actionCreators)(App);
 
 export { connectedApp as App };

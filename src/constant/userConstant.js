@@ -1,4 +1,6 @@
 export const userConstants = {
     LOGIN_REQUEST : 'USERS_LOGIN_REQUEST',
-    LOGOUT : 'USERS_LOGOUT'
+    LOGOUT : 'USERS_LOGOUT',
+    REGISTER : 'USERS_REGISTER',
+    APIKEY : 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9'
 }
