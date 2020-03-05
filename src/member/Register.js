@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { Button, FormGroup, FormControl, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { registerActions } from '../actions/registrationActions';
+import { registrationActions } from '../actions/registrationActions';
 
 import './Register.css';
 
-export default class Register extends Component {
+class Register extends Component {
     constructor(props){
         super(props);
 
@@ -52,7 +52,6 @@ export default class Register extends Component {
                     <FormGroup controlId = "UsersEmail" bssize = "large">
                         <Form.Label>Email</Form.Label>
                         <FormControl 
-                            autoFocus
                             type="email"
                             name="UsersEmail"
                             value={this.state.UsersEmail}
@@ -79,7 +78,7 @@ export default class Register extends Component {
 }
 
 const actionCreators = {
-    register : registerActions.register
+    register : registrationActions.registration
 }
 
 const connectedRegisterPage = connect(null, actionCreators)(Register);

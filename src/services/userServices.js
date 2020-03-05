@@ -1,7 +1,10 @@
+import { userConstants } from '../constant/userConstant';
+
 
 export const userServices = {
     login,
-    logout
+    logout,
+    register
 }
 
 function login (users){
@@ -23,6 +26,19 @@ function login (users){
 
 function logout() {
     localStorage.removeItem('user');
+}
+
+function register(user) {
+    const reqOption = {
+        method : 'POST',
+        headers : {
+            'Content-Type' : 'application/json',
+            'ApiKey' : userConstants.APIKEY
+        },
+        body : JSON.stringify(user)
+    };
+
+    return fetch ('http://localhost:5000/v1/api/users/register', reqOption).then(handleResponse)
 }
 
 function handleResponse(response) {

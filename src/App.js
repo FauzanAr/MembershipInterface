@@ -9,7 +9,7 @@ import { alertActions } from './actions/alertActions';
 import Promotions from './pages/Promotions.js';
 import Rewards from './pages/Rewards.js';
 import { Login } from './member/Login.js';
-import Register from './member/Register.js';
+import { Register } from './member/Register.js';
 
 class App extends React.Component{
   constructor(props)

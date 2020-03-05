@@ -7,5 +7,15 @@ export const registrationActions = {
 }
 
 function registration (user) {
+    return dispatch => {
+        userServices.register(user)
+            .then(
+                user =>{
+                    dispatch(register(user))
+                    history.push('/')
+                }
+            );
+    };
 
+    function register (user) { return { type: userConstants.REGISTER, user}};;
 }
